@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Mijotons - Recettes</h2>
+    
+    <form method="GET">
+        <input type="text" name="titre" placeholder="Titre...">
+        <select name="categorie">
+            <option value="">Toutes</option>
+            <option value="plat">Plat</option>
+            <option value="dessert">Dessert</option>
+            <option value="cocktail">Cocktail</option>
+        </select>
+        <button type="submit">🔍</button>
+    </form>
+
+    <hr>
+
+    <ul>
+        {% for r in listRecette %}
+            <li>
+                <a href="/recette/{{ r.id }}">{{ r.titre }}</a> - {{ r.categorie }}
+            </li>
+        {% empty %}
+            <li>Aucune recette trouvée.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <a href="/">⬅ Retour</a>
+    <h1>{{ recette.titre }}</h1>
+    <p><b>Catégorie :</b> {{ recette.categorie }}</p>
+    <p><b>Temps :</b> {{ recette.tempspreparation }} min</p>
+    
+    {% if recette.imagpath %}
+        <img src="/static/{{ recette.imagpath }}" alt="{{ recette.titre }}" style="width:200px;">
+    {% endif %}
+</body>
+</html>
