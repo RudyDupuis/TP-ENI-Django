@@ -16,10 +16,16 @@
 
     <hr>
 
+    <a href="/recette/ajouter">➕ Ajouter une recette</a>
+
+    <hr>
+
     <ul>
         {% for r in listRecette %}
             <li>
-                <a href="/recette/{{ r.id }}">{{ r.titre }}</a> - {{ r.categorie }}
+                <a href="/recette/{{ r.id }}">{{ r.titre }} - {{ r.categorie }}</a>
+                <a href="/recette/{{ r.id }}/modifier">📝</a>
+                <a href="/recette/{{ r.id }}/supprimer" onclick="return confirm('Sûr ?')">❌</a>
             </li>
         {% empty %}
             <li>Aucune recette trouvée.</li>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une Recette</title>
+</head>
+<body>
+    <a href="/">⬅ Retour à la liste</a>
+    <h2>Ajouter une nouvelle recette</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        <div>
+            <label>Titre :</label><br>
+            <input type="text" name="titre" placeholder="Ex: Crêpes" required>
+        </div>
+        <br>
+        <div>
+            <label>Catégorie :</label><br>
+            <select name="categorie">
+                <option value="plat">Plat</option>
+                <option value="dessert">Dessert</option>
+                <option value="cocktail">Cocktail</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label>Temps de préparation (min) :</label><br>
+            <input type="number" name="temps" placeholder="15" required>
+        </div>
+        <br>
+        <button type="submit">Enregistrer la recette</button>
+    </form>
+</body>
+</html>
