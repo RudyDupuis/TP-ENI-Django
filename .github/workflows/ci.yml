@@ -9,7 +9,7 @@ jobs:
 
       - name: Audit Express (MijotonApi)
         run: |
-          cd MijotonApi
+          cd ./MijotonApi
           npm audit --audit-level=high
 
       - name: Audit Django
