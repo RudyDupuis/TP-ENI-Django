@@ -116,3 +116,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+INSTALLED_APPS += ['mozilla_django_oidc']
+LOGIN_URL = 'oidc_authentication_init'
+
+AUTHENTICATION_BACKENDS = ('mozilla_django_oidc.auth.OIDCAuthenticationBackend',)
+
+OIDC_RP_CLIENT_ID = "django-client"
+OIDC_RP_CLIENT_SECRET = "NiFpU2VGZwQr35tnf8knr2f6FX0QO1OQ"
+OIDC_OP_AUTHORIZATION_ENDPOINT = "http://192.168.50.128:8080/realms/master/protocol/openid-connect/auth"
+OIDC_OP_TOKEN_ENDPOINT = "http://192.168.50.128:8080/realms/master/protocol/openid-connect/token"
+OIDC_OP_USER_ENDPOINT = "http://192.168.50.128:8080/realms/master/protocol/openid-connect/userinfo"
+OIDC_RP_SIGN_ALGO = "RS256"
+OIDC_OP_JWKS_ENDPOINT = "http://192.168.50.128:8080/realms/master/protocol/openid-connect/certs"
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"

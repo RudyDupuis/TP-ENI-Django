@@ -1,6 +1,7 @@
 import requests
 from django.shortcuts import render, redirect
 from django.http import Http404
+from django.contrib.auth.decorators import login_required
 
 API_URL = "http://localhost:3000/recettes"
 
@@ -28,7 +29,8 @@ def recette(request, id):
         return render(request, 'MijotonsApp/recette.html', { 'recette': response.json() })
     else:
         raise Http404("Recette introuvable")
-    
+
+@login_required 
 def ajouter(request):
     if request.method == "POST":
         nouvelle = {
@@ -41,11 +43,12 @@ def ajouter(request):
         return redirect('/')
     return render(request, 'MijotonsApp/ajouter.html')
 
-
+@login_required
 def supprimer(request, id):
     requests.delete(f"{API_URL}/{id}")
     return redirect('/')
 
+@login_required
 def modifier(request, id):
     if request.method == "POST":
         update = {
