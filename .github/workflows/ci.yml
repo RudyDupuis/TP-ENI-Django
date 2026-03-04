@@ -14,5 +14,5 @@ jobs:
 
       - name: Audit Django
         run: |
-          pip install safety
-          safety scan
+          pip install pip-audit django mozilla-django-oidc
+          pip-audit
