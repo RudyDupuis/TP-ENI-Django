@@ -15,4 +15,4 @@ jobs:
       - name: Audit Django
         run: |
           pip install safety
-          safety check
+          safety scan
